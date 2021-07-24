@@ -9,4 +9,8 @@ def home(request):
 
 
 def result(request):
-    return HttpResponse("Hi <h1>{0} {1}</h1>".format(request.POST.get("first_name"), request.POST.get("last_name")))
+    maintainer = "siva"
+    try:
+        return HttpResponse("Hi <h1>{0} {1} </h1> by<h4>{2}</h4>".format(request.POST.get("first_name"), request.POST.get("last_name"),maintainer))
+    except Exception as e:
+        return HttpResponse("{}".format(e))
